@@ -1,0 +1,176 @@
+﻿@page "/"
+@using System.Collections.Generic
+@rendermode InteractiveServer
+
+<h1 class ="title">All Blogs</h1> 
+
+<div class="container">
+    <div class="left-side">
+        @foreach (var blog in Blogs)
+        {
+            <div class="blog-item @(blog.Id == selectedBlogId ? "selected" : "")" @onclick="() => SelectBlog(blog.Id)">
+                <img src="@blog.ImageUrl" alt="@blog.Title">
+                <h2>@blog.Title</h2>
+                <p>@blog.Preview</p>
+            </div>
+        }
+    </div>
+
+    <div class="right-side">
+        @if (selectedBlogId != 0)  // If a blog is selected, display its details
+        {
+            <h1 class="blog-title">@selectedBlog.Title</h1>  // Display the selected blog's title
+            <img src="@selectedBlog.ImageUrl" alt="@selectedBlog.Title">
+            <p class="text-under-image">@selectedBlog.Content</p>  // Display the selected blog's content
+        }
+        else
+        {
+            <p>Select a blog to read</p>  // Display this message if no blog is selected
+        }
+    </div>
+</div>
+
+<style>
+    h1:first-of-type {
+        text-align: center;
+    }
+
+    body {
+        font-family: Titillium web, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .container {
+        display: flex;
+        height: 100vh;
+        margin-top: 100px;
+    }
+
+    .left-side {
+        width: 30%;
+        overflow-y: auto;  /*Scrollable if content overflows vertically*/
+        padding: 20px;  /*Padding inside the left side*/
+        border-right: solid 1px #1A5319;
+        padding-bottom: 400px;
+    }
+
+    .right-side {
+        width: 70%;
+        overflow-y: auto;  /*Scrollable if content overflows vertically*/
+        padding: 20px;  /*Padding inside the right side*/
+        margin: 100px;
+        font-size: 24px;
+        max-width: 50%;
+        padding-bottom: 400px;
+    }
+
+    .blog-item {
+        margin-bottom: 20px;
+        cursor: pointer;
+        padding: 10px;
+        border: 1px solid transparent;
+    }
+
+    .blog-item img {
+        width: 100%;
+        height: auto;
+    }
+
+    .blog-item h2 {
+        margin: 10px 0;
+    }
+
+    .blog-item p {
+        margin: 0;
+    }
+    
+    .blog-title {
+        padding: 30px;
+    }
+
+    .selected {
+        border: 2px solid #007BFF;
+        border-radius: 15px;
+    }
+    
+    img {
+        max-width: 100%;
+        height: auto;
+        border-radius:  10px;
+    }
+    
+    .title {
+        text-align:  center;
+        font-size: 48px;
+        padding:  50px;
+        border-bottom:  solid 2px #1A5319;
+    }
+    
+    .text-under-image{
+        margin-top: 30px;
+    }
+</style>
+
+@code {
+    // List of blogs to display
+    private List<Blog> Blogs = new List<Blog>
+    {
+        new Blog
+        {
+            Id = 1, 
+            Title = "Learning Blazor!",
+            Preview = "I saw this co-op position on my...", 
+            Content = "I saw this co-op position on my school website that looked interesting. I had half the skills required for it and thought to myself 'If I really want this co-op position I need to learn everything this position is looking for' so a few days ago I started learning .NET blazor and Telerik ThemeBuilder!", 
+            ImageUrl = "images/BlogThumbnail1.jpg"
+        },
+        new Blog
+        {
+            Id = 2, 
+            Title = "Blog Title 2", 
+            Preview = "This is a preview of blog 2...", 
+            Content = "Example content for blog 2...", 
+            ImageUrl = "images/BlogThumbnail2.jpg"
+        },
+        new Blog
+        {
+            Id = 3, 
+            Title = "Blog Title 3", 
+            Preview = "This is a preview of blog 3...", 
+            Content = "Example content for blog 3...", 
+            ImageUrl = "images/BlogThumbnail3.jpg"
+        },
+        new Blog
+        {
+            Id = 4, 
+            Title = "しかのこのこのここしたんたん Episode 1 Review",
+            Preview = "I just watched the first episode of...", 
+            Content = "I just watched the first episode of しかのこのこのここしたんたん. When I first saw the pv of this show, it instantly went on my planning list. Goofy comedy like this one is one of my favourite categories and not many shows do it well. This show has the same kind of comedy as Nichijou and Pop team epic. The random 3DCG deer that randomly appear out of nowhere catches me off guard every time and it's great.", 
+            ImageUrl = "images/deer.jpg"
+        }
+    };
+
+    // ID of the selected blog, 0 means no blog is selected
+    private int selectedBlogId = 0;
+    // The selected blog object
+    private Blog selectedBlog;
+
+    // Method to select a blog by its ID
+    private void SelectBlog(int blogId)
+    {
+        selectedBlogId = blogId;  // Set the selected blog ID
+        selectedBlog = Blogs.FirstOrDefault(b => b.Id == blogId);  // Find the selected blog in the list
+        StateHasChanged();  // Ensure the component re-renders
+    }
+
+    // Blog class representing a single blog post
+    private class Blog
+    {
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public string Preview { get; set; }
+        public string Content { get; set; }
+        public string ImageUrl { get; set; }
+    }
+}

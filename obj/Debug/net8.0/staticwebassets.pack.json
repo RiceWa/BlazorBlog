@@ -1,0 +1,57 @@
+{
+  "Files": [
+    {
+      "Id": "/home/sho/Documents/Blazor/BlazorBlog/obj/Debug/net8.0/scopedcss/projectbundle/BlazorBlog.bundle.scp.css",
+      "PackagePath": "staticwebassets/BlazorBlog.bundle.scp.css"
+    },
+    {
+      "Id": "/home/sho/Documents/Blazor/BlazorBlog/wwwroot/app.css",
+      "PackagePath": "staticwebassets/app.css"
+    },
+    {
+      "Id": "/home/sho/Documents/Blazor/BlazorBlog/wwwroot/bootstrap/bootstrap.min.css",
+      "PackagePath": "staticwebassets/bootstrap/bootstrap.min.css"
+    },
+    {
+      "Id": "/home/sho/Documents/Blazor/BlazorBlog/wwwroot/bootstrap/bootstrap.min.css.map",
+      "PackagePath": "staticwebassets/bootstrap/bootstrap.min.css.map"
+    },
+    {
+      "Id": "/home/sho/Documents/Blazor/BlazorBlog/wwwroot/favicon.png",
+      "PackagePath": "staticwebassets/favicon.png"
+    },
+    {
+      "Id": "/home/sho/Documents/Blazor/BlazorBlog/wwwroot/images/BlogThumbnail1.jpg",
+      "PackagePath": "staticwebassets/images/BlogThumbnail1.jpg"
+    },
+    {
+      "Id": "/home/sho/Documents/Blazor/BlazorBlog/wwwroot/images/BlogThumbnail2.jpg",
+      "PackagePath": "staticwebassets/images/BlogThumbnail2.jpg"
+    },
+    {
+      "Id": "/home/sho/Documents/Blazor/BlazorBlog/wwwroot/images/BlogThumbnail3.jpg",
+      "PackagePath": "staticwebassets/images/BlogThumbnail3.jpg"
+    },
+    {
+      "Id": "/home/sho/Documents/Blazor/BlazorBlog/wwwroot/images/deer.jpg",
+      "PackagePath": "staticwebassets/images/deer.jpg"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.BlazorBlog.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.build.BlazorBlog.props",
+      "PackagePath": "build\\BlazorBlog.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.BlazorBlog.props",
+      "PackagePath": "buildMultiTargeting\\BlazorBlog.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.BlazorBlog.props",
+      "PackagePath": "buildTransitive\\BlazorBlog.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
