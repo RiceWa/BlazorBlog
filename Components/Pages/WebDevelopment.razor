@@ -45,23 +45,25 @@
     .container {
         display: flex;
         height: 100vh;
-        margin-top: 100px;
     }
 
     .left-side {
-        width: 30%;
+        width: 25%;
         overflow-y: auto;  /*Scrollable if content overflows vertically*/
-        padding: 20px;  /*Padding inside the left side*/
+        padding: 10px;  /*Padding inside the left side*/
         border-right: solid 1px #1A5319;
+        padding-bottom: 400px;
     }
 
     .right-side {
-        width: 70%;
+        width: 75%;
         overflow-y: auto;  /*Scrollable if content overflows vertically*/
         padding: 20px;  /*Padding inside the right side*/
-        margin: 100px;
+        margin: 50px;
+        margin-left: 50px;
         font-size: 24px;
         max-width: 50%;
+        padding-bottom: 400px;
     }
 
     .blog-item {
@@ -118,27 +120,44 @@
         new Blog
         {
             Id = 1, 
-            Title = "Learning Blazor!",
-            Preview = "I saw this co-op position on my...", 
-            Content = "I saw this co-op position on my school website that looked interesting. I had half the skills required for it and thought to myself 'If I really want this co-op position I need to learn everything this position is looking for' so a few days ago I started learning .NET blazor and Telerik ThemeBuilder!", 
+            Title = "The Evolution of Web Development: From HTML to Modern Frameworks", 
+            Preview = "A comprehensive journey through the history of web development, highlighting key milestones and technological advancements that have shaped the internet as we know it today.", 
+            Content = "The web has evolved dramatically since its inception. The early days of web development began with simple HTML pages, where websites were nothing more than static documents. HTML, or HyperText Markup Language, provided the basic structure, allowing developers to create headings, paragraphs, and links. In the late 1990s, CSS (Cascading Style Sheets) was introduced, revolutionizing the way websites were designed. CSS allowed developers to separate content from design, enabling more complex and visually appealing layouts. This separation made it easier to maintain and update the look and feel of websites. The next significant leap came with the introduction of JavaScript in 1995. JavaScript brought interactivity to the web, enabling features like form validation, dynamic content updates, and interactive animations. This transformed static pages into dynamic and engaging experiences. As the web continued to grow, so did the need for more powerful tools and frameworks. The mid-2000s saw the rise of AJAX (Asynchronous JavaScript and XML), which allowed web pages to update asynchronously without reloading the entire page. This paved the way for more responsive and faster web applications. Fast forward to the present day, we now have an array of powerful frameworks and libraries like React, Angular, and Vue.js. These tools simplify complex tasks, improve developer productivity, and enable the creation of sophisticated single-page applications (SPAs). Additionally, server-side technologies like Node.js have allowed JavaScript to be used for both front-end and back-end development, further streamlining the development process. The evolution of web development continues with the rise of WebAssembly, Progressive Web Apps (PWAs), and advanced APIs that provide more capabilities to web applications. The future holds exciting possibilities as the web continues to innovate and grow.", 
             ImageUrl = "images/BlogThumbnail1.jpg"
         },
         new Blog
         {
             Id = 2, 
-            Title = "Blog Title 2", 
-            Preview = "This is a preview of blog 2...", 
-            Content = "Example content for blog 2...", 
+            Title = "Responsive Web Design: Best Practices and Techniques", 
+            Preview = "In-depth tips and techniques for creating websites that look great and function seamlessly on any device, ensuring a consistent user experience.", 
+            Content = "Responsive web design is essential in today's multi-device world. Users access websites from a variety of devices, including desktops, laptops, tablets, and smartphones. Ensuring your website looks and functions well on all these devices is crucial for providing a positive user experience. Here are some best practices and techniques to achieve responsive web design. Fluid grids use a flexible grid layout that adjusts based on the screen size. Instead of fixed pixel values, use relative units like percentages. This allows your layout to adapt smoothly to different screen widths. Flexible images ensure images resize within their containing elements. Use CSS to set the maximum width of images to 100%, ensuring they scale down if the container is smaller than the image's original size. This prevents images from overflowing their containers on smaller screens. Media queries apply different styles based on device characteristics using media queries. Media queries allow you to define specific CSS rules that apply only when certain conditions are met, such as screen width or orientation. This enables you to create tailored styles for various devices. Mobile-first design starts by designing for mobile devices and scales up. A mobile-first approach ensures that your website provides a solid experience on smaller screens and progressively enhances as the screen size increases. This often results in cleaner, more efficient code and a better user experience across all devices. Include the viewport meta tag in your HTML to control the layout on mobile browsers. This tag instructs the browser on how to adjust the page's dimensions and scaling, ensuring it fits well on small screens. Make sure interactive elements like buttons and links are large enough to be easily tapped on touch devices. Follow accessibility guidelines to ensure sufficient spacing and clear visual cues. Optimize your website's performance to ensure fast loading times on all devices. Compress images, minify CSS and JavaScript files, and leverage browser caching to reduce the amount of data that needs to be loaded. By following these best practices and techniques, you can create a responsive web design that provides a seamless and enjoyable experience for users on any device.", 
             ImageUrl = "images/BlogThumbnail2.jpg"
         },
         new Blog
         {
             Id = 3, 
-            Title = "Blog Title 3", 
-            Preview = "This is a preview of blog 3...", 
-            Content = "Example content for blog 3...", 
+            Title = "JavaScript ES6 Features Every Developer Should Know", 
+            Preview = "An in-depth overview of essential ES6 features that have revolutionized JavaScript development, making it more powerful and easier to use.", 
+            Content = "ES6, also known as ECMAScript 2015, introduced several powerful features to JavaScript that have greatly improved the language's usability and functionality. These features enable developers to write cleaner, more efficient, and more maintainable code. Here are some of the most important ES6 features that every developer should know. Arrow functions provide a more concise syntax for writing functions. They also lexically bind the this value, making them particularly useful for callbacks and methods in object-oriented programming. Arrow functions simplify the syntax and avoid issues with the this keyword in JavaScript. ES6 introduced block-scoped variables with let and constants with const. These new keywords provide better control over variable scope and prevent issues related to variable hoisting and reassignment. Let is used for variables that need to be reassigned, while const is used for variables that should remain constant. Template literals offer enhanced string interpolation and multi-line strings, making it easier to construct complex strings and include variables. This feature allows for cleaner and more readable code when working with strings. Destructuring allows you to easily extract values from arrays and objects and assign them to variables. This feature simplifies working with complex data structures and reduces the need for repetitive code. Promises provide a better way to handle asynchronous operations, replacing the traditional callback pattern. They make it easier to manage asynchronous code and avoid callback hell. Promises offer methods like then and catch for chaining and handling asynchronous results. ES6 introduced classes, providing a more intuitive syntax for object-oriented programming in JavaScript. Classes make it easier to define and work with objects and inheritance. ES6 modules allow you to split your code into separate files and import or export functionalities as needed. This promotes better code organization and reuse. Understanding and utilizing these ES6 features can greatly improve your JavaScript code quality and efficiency. They offer more expressive syntax, better scoping, and modern approaches to handle common programming tasks.", 
             ImageUrl = "images/BlogThumbnail3.jpg"
+        },
+        new Blog
+        {
+            Id = 4, 
+            Title = "Getting Started with Blazor: A Beginner's Guide", 
+            Preview = "An introductory guide to Blazor, a framework for building interactive web UIs with C#, including setup, key concepts, and practical examples.", 
+            Content = "Blazor is a powerful framework that allows developers to build interactive web applications using C#. It brings the power of .NET to the web, enabling full-stack development with a single language. Here's a step-by-step guide to getting started with Blazor. To start building Blazor applications, you need to install the .NET SDK. You can download it from the official .NET website. Once installed, create a new Blazor project using the command line. This creates a Blazor Server application and starts a development server. Open your browser and navigate to see your new Blazor app in action. Blazor applications are built using components. Components are the building blocks of a Blazor application, encapsulating UI and logic. A component is typically defined in a .razor file. Blazor supports two-way data binding, allowing you to synchronize data between the UI and the underlying model. This is useful for creating forms and interactive components. Handling user events like clicks and form submissions is straightforward in Blazor. You can bind event handlers directly in your components. Blazor supports routing, allowing you to navigate between different pages in your application. You can define routes using the @page directive and use the NavLink component for navigation. Blazor integrates seamlessly with .NET's dependency injection system. You can register and inject services into your components, promoting modularity and testability. Blazor offers a seamless development experience for C# developers looking to build modern web applications. Its component-based architecture, rich set of features, and integration with .NET make it a powerful choice for web development.", 
+            ImageUrl = "images/BlogThumbnail4.jpg"
+        },
+        new Blog
+        {
+            Id = 5, 
+            Title = "Top 10 Web Development Tools for 2024", 
+            Preview = "A detailed list of essential tools and resources for web developers in 2024, highlighting their features and how they can enhance your workflow.", 
+            Content = "Staying up-to-date with the latest tools can significantly boost your productivity as a web developer. In 2024, several tools stand out for their ability to streamline development processes, enhance collaboration, and improve code quality. Here are the top 10 tools every web developer should consider using. Visual Studio Code is a versatile and powerful code editor from Microsoft, beloved by developers for its rich feature set and extensive extensions marketplace. It supports a wide range of programming languages, offers built-in Git integration, and features IntelliSense for smart code completions. GitHub Copilot is an AI-powered code completion tool developed by GitHub and OpenAI. GitHub Copilot helps you write code faster by suggesting entire lines or blocks of code based on the context. It's integrated directly into Visual Studio Code, making it easy to use while you code. Figma is a collaborative interface design tool essential for designers and developers working together on UI or UX projects. Its real-time collaboration features allow teams to work on designs simultaneously, and its prototyping capabilities make it easy to create interactive mockups. Postman simplifies API development and testing. Postman allows you to create, test, and document APIs. Its intuitive interface and powerful features, such as automated testing and mock servers, make it a must-have for backend and frontend developers. Webpack is a powerful module bundler essential for modern web development. Webpack helps you manage and bundle your JavaScript, CSS, and other assets, optimizing your application for better performance. Its plugin system allows for extensive customization and automation of build processes. Tailwind CSS is a utility-first CSS framework that provides a set of pre-defined classes that can be combined to build custom designs without writing custom CSS. It promotes a rapid development workflow and helps maintain consistent styling across projects. Docker containerizes your applications for consistent environments. Docker allows you to package applications and their dependencies into containers, ensuring they run consistently across different environments. This is particularly useful for development, testing, and deployment. Jest is a delightful JavaScript testing framework that makes it easy to write and run tests for your JavaScript code. Its features include zero configuration setup, powerful mocking capabilities, and an intuitive API. Jest integrates seamlessly with other popular tools and frameworks. Vite is a fast and efficient build tool designed for modern web development. Vite offers instant server start, lightning-fast hot module replacement, and optimized build output. Its performance and simplicity make it an excellent choice for both small and large projects. Netlify simplifies deployment and hosting of web projects. Netlify offers continuous deployment, serverless functions, and a powerful CDN. Netlify's seamless integration with Git repositories and its intuitive interface make it easy to deploy and manage your web applications. These tools can help streamline your development workflow, enhance collaboration, and improve the quality of your code. By leveraging these resources, you can stay ahead of the curve and build better, more efficient web applications in 2024.", 
+            ImageUrl = "images/BlogThumbnail5.jpg"
         }
+
     };
 
     // ID of the selected blog, 0 means no blog is selected

@@ -6,7 +6,7 @@
 
 main[b-dlm0ee8m1w] {
     flex: 1;
-    background-color: #D6EFD8;
+    background-color: #F4F4F4;;
 }
 
 .sidebar[b-dlm0ee8m1w] {
@@ -14,7 +14,7 @@ main[b-dlm0ee8m1w] {
 }
 
 .top-row[b-dlm0ee8m1w] {
-    background-color: #D6EFD8;
+    background-color: #1A5319;
     border-bottom: 1px solid #80AF81;
     justify-content: flex-end;
     height: 3.5rem;
@@ -36,6 +36,10 @@ main[b-dlm0ee8m1w] {
         overflow: hidden;
         text-overflow: ellipsis;
     }
+
+.content px-4[b-dlm0ee8m1w] {
+    padding-left: 0;
+}
 
 @media (max-width: 640.98px) {
     .top-row[b-dlm0ee8m1w] {

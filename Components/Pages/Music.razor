@@ -1,0 +1,185 @@
+﻿@page "/Music"
+@using System.Collections.Generic
+@rendermode InteractiveServer
+
+<h1 class ="title">Music Blogs</h1> 
+
+<div class="container">
+    <div class="left-side">
+        @foreach (var blog in Blogs)
+        {
+            <div class="blog-item @(blog.Id == selectedBlogId ? "selected" : "")" @onclick="() => SelectBlog(blog.Id)">
+                <img src="@blog.ImageUrl" alt="@blog.Title">
+                <h2>@blog.Title</h2>
+                <p>@blog.Preview</p>
+            </div>
+        }
+    </div>
+
+    <div class="right-side">
+        @if (selectedBlogId != 0)  // If a blog is selected, display its details
+        {
+            <h1 class="blog-title">@selectedBlog.Title</h1>  // Display the selected blog's title
+            <img src="@selectedBlog.ImageUrl" alt="@selectedBlog.Title">
+            <p class="text-under-image">@selectedBlog.Content</p>  // Display the selected blog's content
+        }
+        else
+        {
+            <p>Select a blog to read</p>  // Display this message if no blog is selected
+        }
+    </div>
+</div>
+
+<style>
+    h1:first-of-type {
+        text-align: center;
+    }
+
+    body {
+        font-family: Titillium web, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .container {
+        display: flex;
+        height: 100vh;
+    }
+
+    .left-side {
+        width: 25%;
+        overflow-y: auto;  /*Scrollable if content overflows vertically*/
+        padding: 10px;  /*Padding inside the left side*/
+        border-right: solid 1px #1A5319;
+        padding-bottom: 400px;
+    }
+
+    .right-side {
+        width: 75%;
+        overflow-y: auto;  /*Scrollable if content overflows vertically*/
+        padding: 20px;  /*Padding inside the right side*/
+        margin: 50px;
+        margin-left: 50px;
+        font-size: 24px;
+        max-width: 50%;
+        padding-bottom: 400px;
+    }
+
+    .blog-item {
+        margin-bottom: 20px;
+        cursor: pointer;
+        padding: 10px;
+        border: 1px solid transparent;
+    }
+
+    .blog-item img {
+        width: 100%;
+        height: auto;
+    }
+
+    .blog-item h2 {
+        margin: 10px 0;
+    }
+
+    .blog-item p {
+        margin: 0;
+    }
+    
+    .blog-title {
+        padding: 30px;
+    }
+
+    .selected {
+        border: 2px solid #007BFF;
+        border-radius: 15px;
+    }
+    
+    img {
+        max-width: 100%;
+        height: auto;
+        border-radius:  10px;
+    }
+    
+    .title {
+        text-align:  center;
+        font-size: 48px;
+        padding:  50px;
+        border-bottom:  solid 2px #1A5319;
+    }
+    
+    .text-under-image{
+        margin-top: 30px;
+    }
+</style>
+
+@code {
+    // List of blogs to display
+    private List<Blog> Blogs = new List<Blog>
+    {
+new Blog
+{
+    Id = 1, 
+    Title = "The Evolution of Rock Music: From Elvis to Modern Rock", 
+    Preview = "A comprehensive journey through the history of rock music, highlighting key milestones and influential artists who shaped the genre.", 
+    Content = "Rock music has undergone a significant evolution since its inception in the 1950s. It began with the emergence of rock and roll, a genre that combined elements of blues, jazz, and country music. Artists like Elvis Presley, Chuck Berry, and Little Richard were among the pioneers who popularized rock and roll, bringing it to mainstream audiences. In the 1960s, rock music evolved with the British Invasion, led by bands such as The Beatles and The Rolling Stones. This era saw the birth of psychedelic rock, characterized by experimental sounds and unconventional song structures. The late 1960s and early 1970s marked the rise of hard rock and heavy metal, with bands like Led Zeppelin, Black Sabbath, and Deep Purple pushing the boundaries of the genre with powerful guitar riffs and intense vocals. The punk rock movement of the late 1970s brought a raw and rebellious energy to rock music, with bands like The Ramones, Sex Pistols, and The Clash leading the charge. The 1980s saw the emergence of alternative rock and the rise of iconic bands such as Nirvana, U2, and R.E.M. Modern rock continues to evolve, incorporating diverse influences from various genres, and remains a vibrant and dynamic form of musical expression.", 
+    ImageUrl = "images/BlogThumbnail6.jpg"
+},
+new Blog
+{
+    Id = 2, 
+    Title = "Understanding Classical Music: Key Composers and Their Masterpieces", 
+    Preview = "An in-depth look at classical music, exploring the works of key composers and their contributions to the genre.", 
+    Content = "Classical music is a genre with a rich history and a vast repertoire of works composed by some of the greatest musical minds in history. One of the earliest and most influential composers of the Baroque period was Johann Sebastian Bach, whose compositions such as the Brandenburg Concertos and The Well-Tempered Clavier remain essential works in classical music. The Classical period brought forth composers like Wolfgang Amadeus Mozart, known for his operas, symphonies, and chamber music. His works, including The Magic Flute and Symphony No. 40, are celebrated for their clarity, balance, and form. Ludwig van Beethoven, a pivotal figure in the transition from the Classical to the Romantic period, composed some of the most iconic pieces in classical music, such as the Ninth Symphony and Moonlight Sonata. The Romantic era saw composers like Franz Schubert, whose lieder and symphonies are known for their emotional depth, and Pyotr Ilyich Tchaikovsky, whose ballets like The Nutcracker and Swan Lake remain popular to this day. Understanding the contributions of these key composers provides a deeper appreciation of the classical music genre and its lasting impact on the world of music.", 
+    ImageUrl = "images/BlogThumbnail7.jpg"
+},
+new Blog
+{
+    Id = 3, 
+    Title = "The Rise of Electronic Music: From Synthesizers to EDM", 
+    Preview = "A detailed exploration of the history and evolution of electronic music, from early synthesizers to the modern EDM scene.", 
+    Content = "Electronic music has come a long way since its early beginnings in the mid-20th century. The advent of synthesizers in the 1960s and 1970s revolutionized music production, allowing artists to create new sounds and textures. Pioneers like Kraftwerk and Jean-Michel Jarre used synthesizers to produce innovative electronic music that laid the groundwork for future genres. The 1980s saw the rise of electronic dance music (EDM), with subgenres such as house, techno, and trance gaining popularity in nightclubs and rave scenes around the world. Artists like Frankie Knuckles, Derrick May, and Paul Oakenfold were instrumental in shaping the EDM landscape during this time. The 1990s and 2000s witnessed the explosion of electronic music into mainstream culture, with artists like Daft Punk, The Prodigy, and Tiësto achieving international success. The advent of digital audio workstations (DAWs) and advancements in technology made music production more accessible, leading to a surge in electronic music producers and DJs. Today, electronic music continues to evolve, with genres like dubstep, future bass, and trap pushing the boundaries of sound and creativity. The global popularity of EDM festivals such as Tomorrowland and Ultra Music Festival highlights the enduring appeal and dynamic nature of electronic music.", 
+    ImageUrl = "images/BlogThumbnail8.jpg"
+},
+new Blog
+{
+    Id = 4, 
+    Title = "Jazz Music: The Origins, Evolution, and Key Figures", 
+    Preview = "An insightful look into the origins and evolution of jazz music, highlighting key figures who have shaped the genre.", 
+    Content = "Jazz music originated in the late 19th and early 20th centuries in the United States, with roots in African American musical traditions, blues, and ragtime. New Orleans is often considered the birthplace of jazz, where musicians blended these influences to create a new and improvisational style of music. Louis Armstrong, a trumpeter and vocalist, was one of the early pioneers who brought jazz to a wider audience with his virtuosic playing and charismatic performances. The Swing Era of the 1930s and 1940s saw the rise of big bands and bandleaders like Duke Ellington and Count Basie, who popularized jazz with their sophisticated arrangements and energetic performances. The bebop movement of the 1940s and 1950s, led by artists like Charlie Parker and Dizzy Gillespie, introduced more complex harmonies and rhythms, pushing jazz into new and innovative directions. Miles Davis, a trumpeter and bandleader, played a significant role in the evolution of jazz, from his work in bebop to his pioneering efforts in cool jazz, modal jazz, and jazz fusion. The genre continues to evolve, with contemporary jazz artists like Herbie Hancock, Wynton Marsalis, and Kamasi Washington pushing the boundaries of jazz and keeping the tradition alive. Jazz remains a dynamic and influential genre, celebrated for its rich history and its ongoing innovation.", 
+    ImageUrl = "images/BlogThumbnail9.jpg"
+},
+new Blog
+{
+    Id = 5, 
+    Title = "Exploring World Music: Diverse Sounds from Around the Globe", 
+    Preview = "A journey through the diverse sounds and cultural significance of world music, highlighting various regional styles and artists.", 
+    Content = "World music encompasses a vast array of musical traditions and styles from different cultures and regions around the globe. Each style carries its own unique characteristics, instruments, and cultural significance. African music, for example, is known for its rich rhythms, complex polyrhythms, and traditional instruments like the djembe and kora. Artists like Fela Kuti and Ali Farka Touré have brought African music to international audiences, showcasing its vibrant energy and cultural depth. Latin American music, including genres like salsa, samba, and tango, is characterized by its lively rhythms and passionate performances. Icons like Celia Cruz, Carlos Gardel, and João Gilberto have made significant contributions to these genres, blending traditional sounds with modern influences. Indian classical music, with its intricate ragas and talas, has a long history and deep spiritual significance. Renowned artists like Ravi Shankar and L. Subramaniam have introduced the world to the beauty and complexity of Indian music. Middle Eastern music features unique scales and modes, as well as traditional instruments like the oud and qanun. Artists like Fairuz and Omar Faruk Tekbilek have popularized Middle Eastern music, highlighting its rich heritage and emotional expressiveness. Exploring world music allows us to appreciate the diversity of musical expression and the cultural stories embedded within each genre, offering a broader understanding of the human experience through sound.", 
+    ImageUrl = "images/BlogThumbnail10.jpg"
+}
+
+    };
+
+    // ID of the selected blog, 0 means no blog is selected
+    private int selectedBlogId = 0;
+    // The selected blog object
+    private Blog selectedBlog;
+
+    // Method to select a blog by its ID
+    private void SelectBlog(int blogId)
+    {
+        selectedBlogId = blogId;  // Set the selected blog ID
+        selectedBlog = Blogs.FirstOrDefault(b => b.Id == blogId);  // Find the selected blog in the list
+        StateHasChanged();  // Ensure the component re-renders
+    }
+
+    // Blog class representing a single blog post
+    private class Blog
+    {
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public string Preview { get; set; }
+        public string Content { get; set; }
+        public string ImageUrl { get; set; }
+    }
+}
